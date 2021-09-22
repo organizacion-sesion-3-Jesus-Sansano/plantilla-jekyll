@@ -1,35 +1,17 @@
-<!DOCTYPE html>
-<html>
+---
+layout: layout
+---
 
-  <head>
-    <meta charset="utf-8">
-    <title>{{page.title}}</title>
-    <meta name="author" content="">
-    <meta name="description" content="">
-  </head>
+{{content}}
 
-  <body>
+<h2> Posts : </h2>
 
-    <header>
-      {% include header.html %}
-    </header>
-
-    <nav>
-      {% include nav.html %}
-    </nav>
-
-    <aside>
-      {% include aside.html %}
-    </aside>
-
-    <section>
-      {{content}}
-    </section>
-
-    <footer>
-      {% include footer.html %}
-    </footer>
-
-  </body>
-
-</html>
+<ul>
+  {% for post in site.posts %}
+  <li>
+    <a href="{{site.baseurl}}{{post.url}}">{{post.tittle}}</a>
+    <p>Publicado en: {{post.date}}</p>
+    Extracto del contenido del post: {{post.excerpt}}
+  </li>
+  {% endfor %}
+</ul>
